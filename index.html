@@ -5,64 +5,88 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PriorVLA</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="static/css/style.css">
 </head>
 
 <body>
   <section class="hero">
     <div class="container">
-      <h1>PriorVLA</h1>
-
-      <p class="subtitle">
-        Prior-Preserving Adaptation for Vision-Language-Action Models
-      </p>
+      <h1>
+        PriorVLA: Prior-Preserving Adaptation for<br>
+        Vision-Language-Action Models
+      </h1>
 
       <p class="authors">
-        Xinyu Guo · Bin Xie · Wei Chai · Xianchi Deng · Tiancai Wang · Zhengxing Wu · Xingyu Chen
+        <span>Xinyu Guo<sup>1,3,4</sup></span>,
+        <span>Bin Xie<sup>2</sup></span>,
+        <span>Wei Chai<sup>5</sup></span>,
+        <span>Xianchi Deng<sup>2</sup></span>,
+        <span>Tiancai Wang<sup>2</sup></span>,
+        <span>Zhengxing Wu<sup>1</sup></span>,
+        <span>Xingyu Chen<sup>4</sup></span>
+      </p>
+
+      <p class="affiliations">
+        <sup>1</sup>Institute of Automation, Chinese Academy of Sciences,
+        <sup>2</sup>Dexmal<br>
+        <sup>3</sup>University of Chinese Academy of Sciences,
+        <sup>4</sup>Zhongguancun Academy,
+        <sup>5</sup>Nanjing University of Aeronautics and Astronautics
+      </p>
+
+      <p class="emails">
+        guoxinyu2024@ia.ac.cn
       </p>
 
       <div class="links">
-        <a href="#" class="button">Paper</a>
-        <a href="#" class="button">arXiv</a>
-        <a href="#" class="button">Code</a>
-        <a href="#videos" class="button">Videos</a>
-        <a href="#bibtex" class="button">BibTeX</a>
+        <span class="button disabled"><i class="ai ai-arxiv"></i> arXiv Coming Soon</span>
+        <span class="button disabled"><i class="fa-solid fa-code"></i> Code Coming Soon</span>
+        <a href="#videos" class="button"><i class="fa-solid fa-video"></i> Videos</a>
+        <a href="#bibtex" class="button"><i class="fa-solid fa-quote-right"></i> BibTeX</a>
       </div>
     </div>
   </section>
 
   <main class="container">
 
-    <section class="section">
+    <section class="section first-figure">
       <img class="main-figure" src="static/images/fig1.png" alt="PriorVLA overview">
       <p class="caption">
-        PriorVLA preserves and leverages pretrained scene and motor priors for data-efficient and generalizable VLA
-        adaptation.
+        <b>Overview of PriorVLA.</b>
+        Large-scale pretraining provides broad priors for general manipulation, but full fine-tuning on limited
+        downstream data can treat these priors mainly as initialization and lead to prior forgetting, especially when
+        evaluated under OOD scenes. PriorVLA instead preserves and leverages pretrained scene and motor priors through
+        Dual Action Experts and Expert Queries, improving adaptation across simulation and real-world tasks with the
+        largest gains in few-shot and OOD settings.
       </p>
     </section>
 
-    <section class="section">
+    <section class="section abstract-section">
       <h2>Abstract</h2>
 
       <p>
         Large-scale pretraining has made Vision-Language-Action (VLA) models promising foundations
         for generalist robot manipulation, yet adapting them to downstream tasks remains necessary.
         However, the common practice of full fine-tuning treats pretraining as initialization and can
-        shift broad priors toward narrow training-distribution patterns.
-      </p>
-
-      <p>
-        We propose <b>PriorVLA</b>, a prior-preserving adaptation framework that preserves pretrained
-        priors and learns to leverage them for effective adaptation. PriorVLA keeps a frozen Prior
-        Expert as a read-only prior source and trains an Adaptation Expert for downstream specialization.
-        Expert Queries capture scene priors from the pretrained VLM and motor priors from the Prior
-        Expert, integrating both into the Adaptation Expert to guide action generation.
+        shift broad priors toward narrow training-distribution patterns. We propose <b>PriorVLA</b>,
+        a novel framework that preserves pretrained priors and learns to leverage them for effective
+        adaptation. PriorVLA keeps a frozen Prior Expert as a read-only prior source and trains an
+        Adaptation Expert for downstream specialization. Expert Queries capture scene priors from the
+        pretrained VLM and motor priors from the Prior Expert, integrating both into the Adaptation
+        Expert to guide adaptation. Together, PriorVLA updates only 25% of the parameters updated by
+        full fine-tuning.
       </p>
 
       <p>
         Across RoboTwin 2.0, LIBERO, and real-world tasks, PriorVLA achieves stronger overall
         performance than full fine-tuning and state-of-the-art VLA baselines, with the largest gains
-        under out-of-distribution and few-shot settings.
+        under out-of-distribution (OOD) and few-shot settings. PriorVLA improves over π<sub>0.5</sub>
+        by 11 points on RoboTwin 2.0-Hard and achieves 99.1% average success on LIBERO. Across
+        eight real-world tasks and two embodiments, PriorVLA reaches 81% in-distribution (ID) and
+        57% OOD success with standard data. With only 10 demonstrations per task, PriorVLA reaches
+        48% ID and 32% OOD success, surpassing π<sub>0.5</sub> by 24 and 22 points, respectively.
       </p>
     </section>
 
@@ -72,8 +96,12 @@
       <img class="main-figure" src="static/images/fig2.png" alt="PriorVLA architecture">
 
       <p class="caption">
-        PriorVLA introduces Dual Action Experts and Expert Queries to separate prior preservation from downstream
-        specialization.
+        <b>PriorVLA architecture.</b>
+        PriorVLA builds on a pretrained VLA and introduces two coupled modules: Dual Action Experts and Expert Queries.
+        Dual Action Experts keep the original AE as a frozen Prior Expert and train an Adaptation Expert for downstream
+        action generation. Expert Queries capture scene and motor priors from pretrained forward paths and integrate
+        them into the Adaptation Expert; the Prior Expert serves only as a read-only prior source, while the Adaptation
+        Expert drives denoising and produces the final action chunk.
       </p>
     </section>
 
@@ -83,8 +111,9 @@
       <img class="main-figure" src="static/images/fig4.png" alt="Experimental overview">
 
       <p class="caption">
-        We evaluate PriorVLA on RoboTwin 2.0, LIBERO, and real-world robot tasks across ID/OOD settings and different
-        data regimes.
+        <b>Experimental overview.</b>
+        We evaluate PriorVLA on RoboTwin 2.0, LIBERO, and two real-world robot embodiments, covering ID/OOD
+        generalization, data regimes, and component ablations.
       </p>
     </section>
 
@@ -95,14 +124,14 @@
         <div>
           <img class="main-figure" src="static/images/robot_franka.png" alt="Franka robot setup">
           <p class="caption">
-            Franka single-arm robot setup.
+            Franka robot setup.
           </p>
         </div>
 
         <div>
           <img class="main-figure" src="static/images/robot_acone.png" alt="AC-One robot setup">
           <p class="caption">
-            AC-One dual-arm robot setup.
+            AC-One robot setup.
           </p>
         </div>
       </div>
@@ -141,8 +170,7 @@
       <h2>Real-World Videos</h2>
 
       <p>
-        Real-world videos will be added soon. Each task will include ID success, baseline OOD failure,
-        and PriorVLA OOD success side by side.
+        Real-world videos will be added soon.
       </p>
 
       <div class="video-placeholder">
