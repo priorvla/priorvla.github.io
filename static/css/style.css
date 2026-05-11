@@ -2,7 +2,7 @@ body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
     color: #252525;
-    background: #ffffff;
+    background: linear-gradient(180deg, #fcfcfd 0%, #ffffff 100%);
     line-height: 1.6;
 }
 
@@ -12,19 +12,132 @@ body {
     padding: 0 24px;
 }
 
+/* =========================
+   Hero
+   ========================= */
+
 .hero {
+    padding: 18px 18px 26px;
+}
+
+.hero-shell {
+    position: relative;
+    overflow: hidden;
+    max-width: 1420px;
+    margin: 0 auto;
+    border-radius: 26px;
+    border: 1px solid rgba(15, 23, 42, 0.07);
+    background:
+        radial-gradient(circle at 12% 18%, rgba(37, 99, 235, 0.055), rgba(255, 255, 255, 0) 24%),
+        radial-gradient(circle at 88% 18%, rgba(249, 115, 22, 0.050), rgba(255, 255, 255, 0) 25%),
+        linear-gradient(180deg, #ffffff 0%, #fbfcfd 100%);
+    box-shadow:
+        0 12px 34px rgba(15, 23, 42, 0.065),
+        inset 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+
+.hero-inner {
+    position: relative;
+    z-index: 2;
     text-align: center;
-    padding: 56px 24px 34px;
+    padding-top: 54px;
+    padding-bottom: 54px;
+}
+
+.hero-orb {
+    position: absolute;
+    border-radius: 999px;
+    filter: blur(58px);
+    opacity: 0.22;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero-orb-a {
+    width: 300px;
+    height: 300px;
+    left: -80px;
+    top: -70px;
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.20) 0%, rgba(37, 99, 235, 0.06) 48%, rgba(37, 99, 235, 0) 72%);
+    animation: floatA 18s ease-in-out infinite;
+}
+
+.hero-orb-b {
+    width: 320px;
+    height: 320px;
+    right: -95px;
+    top: -75px;
+    background: radial-gradient(circle, rgba(249, 115, 22, 0.18) 0%, rgba(249, 115, 22, 0.05) 48%, rgba(249, 115, 22, 0) 72%);
+    animation: floatB 22s ease-in-out infinite;
+}
+
+.hero-orb-c {
+    width: 260px;
+    height: 260px;
+    left: 45%;
+    bottom: -70px;
+    background: radial-gradient(circle, rgba(20, 184, 166, 0.12) 0%, rgba(20, 184, 166, 0.04) 48%, rgba(20, 184, 166, 0) 72%);
+    animation: floatC 24s ease-in-out infinite;
+}
+
+.hero-ribbon {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 78px;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.42;
+}
+
+.hero-ribbon::before,
+.hero-ribbon::after {
+    content: "";
+    position: absolute;
+    left: -8%;
+    right: -8%;
+    border-radius: 50%;
+}
+
+.hero-ribbon::before {
+    height: 74px;
+    bottom: -38px;
+    background: linear-gradient(90deg,
+            rgba(37, 99, 235, 0.10),
+            rgba(20, 184, 166, 0.08),
+            rgba(255, 255, 255, 0),
+            rgba(249, 115, 22, 0.10));
+    transform: skewY(-2deg);
+    animation: ribbonWave1 26s ease-in-out infinite;
+}
+
+.hero-ribbon::after {
+    height: 62px;
+    bottom: -46px;
+    background: linear-gradient(90deg,
+            rgba(249, 115, 22, 0.09),
+            rgba(255, 255, 255, 0),
+            rgba(37, 99, 235, 0.08));
+    transform: skewY(2deg);
+    animation: ribbonWave2 30s ease-in-out infinite;
 }
 
 h1 {
-    font-size: 46px;
+    font-size: 48px;
     line-height: 1.12;
-    margin: 0 auto 26px;
-    font-weight: 700;
-    letter-spacing: -0.8px;
-    max-width: 1120px;
+    margin: 0 auto 28px;
+    font-weight: 740;
+    letter-spacing: -0.85px;
+    max-width: 1180px;
 }
+
+.title-accent {
+    color: #ec5c03;
+    background: none;
+    -webkit-text-fill-color: initial;
+}
+
 
 .authors {
     font-size: 20px;
@@ -44,23 +157,15 @@ h1 {
     font-size: 17px;
     line-height: 1.45;
     margin: 6px auto;
-    color: #444;
+    color: #4b5563;
     max-width: 980px;
-    text-align: center !important;
-}
-
-.notes {
-    font-size: 14px;
-    line-height: 1.35;
-    margin: 6px auto;
-    color: #666;
     text-align: center !important;
 }
 
 .emails {
     font-size: 15px;
     margin: 8px auto 20px;
-    color: #555;
+    color: #5b6472;
     text-align: center !important;
 }
 
@@ -68,7 +173,7 @@ h1 {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 11px;
     margin-top: 18px;
 }
 
@@ -76,11 +181,13 @@ h1 {
     display: inline-block;
     padding: 8px 19px;
     border-radius: 999px;
-    background: #2b2b2b;
+    background: rgba(31, 41, 55, 0.94);
     color: #fff;
     text-decoration: none;
     font-size: 16px;
     line-height: 1.25;
+    box-shadow: 0 5px 13px rgba(15, 23, 42, 0.10);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
 }
 
 .button i {
@@ -88,14 +195,25 @@ h1 {
 }
 
 .button:hover {
-    opacity: 0.86;
+    transform: translateY(-1px);
+    box-shadow: 0 7px 16px rgba(15, 23, 42, 0.13);
+    opacity: 0.95;
 }
 
 .button.disabled {
-    background: #555;
+    background: rgba(100, 116, 139, 0.88);
     cursor: default;
-    opacity: 0.85;
+    opacity: 0.95;
 }
+
+.button.disabled:hover {
+    transform: none;
+    box-shadow: 0 5px 13px rgba(15, 23, 42, 0.10);
+}
+
+/* =========================
+   Sections
+   ========================= */
 
 .section {
     padding: 34px 0;
@@ -197,9 +315,96 @@ footer {
     font-size: 14px;
 }
 
+/* =========================
+   Animations
+   ========================= */
+
+@keyframes floatA {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(14px, 8px) scale(1.025);
+    }
+
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+@keyframes floatB {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(-12px, 10px) scale(1.025);
+    }
+
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+@keyframes floatC {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(8px, -8px) scale(1.02);
+    }
+
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+@keyframes ribbonWave1 {
+    0% {
+        transform: translateX(0) skewY(-2deg);
+    }
+
+    50% {
+        transform: translateX(10px) skewY(-1deg);
+    }
+
+    100% {
+        transform: translateX(0) skewY(-2deg);
+    }
+}
+
+@keyframes ribbonWave2 {
+    0% {
+        transform: translateX(0) skewY(2deg);
+    }
+
+    50% {
+        transform: translateX(-10px) skewY(3deg);
+    }
+
+    100% {
+        transform: translateX(0) skewY(2deg);
+    }
+}
+
+/* =========================
+   Responsive
+   ========================= */
+
 @media (max-width: 800px) {
     .hero {
-        padding-top: 42px;
+        padding: 10px 10px 22px;
+    }
+
+    .hero-shell {
+        border-radius: 22px;
+    }
+
+    .hero-inner {
+        padding-top: 38px;
+        padding-bottom: 46px;
     }
 
     h1 {
