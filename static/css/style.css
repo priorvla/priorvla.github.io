@@ -138,7 +138,6 @@ h1 {
     -webkit-text-fill-color: initial;
 }
 
-
 .authors {
     font-size: 20px;
     line-height: 1.55;
@@ -298,6 +297,45 @@ h1 {
     margin-top: 20px;
 }
 
+.video-task {
+    margin-top: 8px;
+}
+
+.video-task h3 {
+    margin-top: 10px;
+    margin-bottom: 16px;
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    align-items: start;
+}
+
+.video-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 10px 10px 12px;
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+}
+
+.video-card video {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+    background: #000;
+}
+
+.video-card p {
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+    color: #374151;
+    margin: 9px auto 0;
+}
+
 pre {
     text-align: left;
     background: #f6f6f6;
@@ -420,6 +458,10 @@ footer {
     }
 
     .two-col {
+        grid-template-columns: 1fr;
+    }
+
+    .video-grid {
         grid-template-columns: 1fr;
     }
 }
