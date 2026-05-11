@@ -1,0 +1,159 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    color: #222;
+    background: #fff;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.hero {
+    text-align: center;
+    padding: 64px 24px 28px;
+}
+
+h1 {
+    font-size: 52px;
+    margin: 0;
+    font-weight: 700;
+}
+
+.subtitle {
+    font-size: 24px;
+    margin: 14px auto 18px;
+    max-width: 900px;
+    color: #333;
+}
+
+.authors {
+    font-size: 17px;
+    margin: 10px auto;
+    color: #333;
+}
+
+.venue {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 12px auto 22px;
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.button {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 999px;
+    background: #222;
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.button:hover {
+    opacity: 0.85;
+}
+
+.section {
+    padding: 34px 0;
+    text-align: center;
+}
+
+.section h2 {
+    font-size: 32px;
+    margin: 0 0 20px;
+}
+
+.section h3 {
+    font-size: 22px;
+    margin: 30px 0 14px;
+}
+
+.section p {
+    text-align: left;
+    font-size: 17px;
+    max-width: 920px;
+    margin: 12px auto;
+}
+
+.main-figure {
+    width: 100%;
+    max-width: 980px;
+    border-radius: 10px;
+}
+
+.result-figure {
+    width: 100%;
+    max-width: 960px;
+    border-radius: 8px;
+    border: 1px solid #e8e8e8;
+    margin-bottom: 12px;
+}
+
+.caption {
+    text-align: center !important;
+    color: #666;
+    font-size: 15px !important;
+    margin-top: 10px !important;
+}
+
+.two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 26px;
+    align-items: start;
+}
+
+.two-col .main-figure {
+    width: 100%;
+}
+
+.video-placeholder {
+    border: 1px dashed #bbb;
+    border-radius: 14px;
+    padding: 60px 20px;
+    color: #777;
+    background: #fafafa;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+pre {
+    text-align: left;
+    background: #f6f6f6;
+    border: 1px solid #e6e6e6;
+    border-radius: 12px;
+    padding: 18px;
+    overflow-x: auto;
+    font-size: 14px;
+}
+
+footer {
+    text-align: center;
+    color: #777;
+    padding: 30px 0 50px;
+    font-size: 14px;
+}
+
+@media (max-width: 800px) {
+    h1 {
+        font-size: 40px;
+    }
+
+    .subtitle {
+        font-size: 20px;
+    }
+
+    .two-col {
+        grid-template-columns: 1fr;
+    }
+}

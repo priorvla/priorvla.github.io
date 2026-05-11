@@ -1,15 +1,171 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
-  <title>PriorVLA123</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PriorVLA</title>
+  <link rel="stylesheet" href="static/css/style.css">
 </head>
 
 <body>
-  <h1>PriorVLA_test</h1>
-  <p>Preserving Pretrained Priors for Vision-Language-Action Adaptation</p>
-  <p>Project page coming soon.</p>
+  <section class="hero">
+    <div class="container">
+      <h1>PriorVLA</h1>
+
+      <p class="subtitle">
+        Prior-Preserving Adaptation for Vision-Language-Action Models
+      </p>
+
+      <p class="authors">
+        Xinyu Guo · Bin Xie · Wei Chai · Xianchi Deng · Tiancai Wang · Zhengxing Wu · Xingyu Chen
+      </p>
+
+      <div class="links">
+        <a href="#" class="button">Paper</a>
+        <a href="#" class="button">arXiv</a>
+        <a href="#" class="button">Code</a>
+        <a href="#videos" class="button">Videos</a>
+        <a href="#bibtex" class="button">BibTeX</a>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+
+    <section class="section">
+      <img class="main-figure" src="static/images/fig1.png" alt="PriorVLA overview">
+      <p class="caption">
+        PriorVLA preserves and leverages pretrained scene and motor priors for data-efficient and generalizable VLA
+        adaptation.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Abstract</h2>
+
+      <p>
+        Large-scale pretraining has made Vision-Language-Action (VLA) models promising foundations
+        for generalist robot manipulation, yet adapting them to downstream tasks remains necessary.
+        However, the common practice of full fine-tuning treats pretraining as initialization and can
+        shift broad priors toward narrow training-distribution patterns.
+      </p>
+
+      <p>
+        We propose <b>PriorVLA</b>, a prior-preserving adaptation framework that preserves pretrained
+        priors and learns to leverage them for effective adaptation. PriorVLA keeps a frozen Prior
+        Expert as a read-only prior source and trains an Adaptation Expert for downstream specialization.
+        Expert Queries capture scene priors from the pretrained VLM and motor priors from the Prior
+        Expert, integrating both into the Adaptation Expert to guide action generation.
+      </p>
+
+      <p>
+        Across RoboTwin 2.0, LIBERO, and real-world tasks, PriorVLA achieves stronger overall
+        performance than full fine-tuning and state-of-the-art VLA baselines, with the largest gains
+        under out-of-distribution and few-shot settings.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Method Overview</h2>
+
+      <img class="main-figure" src="static/images/fig2.png" alt="PriorVLA architecture">
+
+      <p class="caption">
+        PriorVLA introduces Dual Action Experts and Expert Queries to separate prior preservation from downstream
+        specialization.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Experimental Overview</h2>
+
+      <img class="main-figure" src="static/images/fig4.png" alt="Experimental overview">
+
+      <p class="caption">
+        We evaluate PriorVLA on RoboTwin 2.0, LIBERO, and real-world robot tasks across ID/OOD settings and different
+        data regimes.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Real-World Robot Setup</h2>
+
+      <div class="two-col">
+        <div>
+          <img class="main-figure" src="static/images/robot_franka.png" alt="Franka robot setup">
+          <p class="caption">
+            Franka single-arm robot setup.
+          </p>
+        </div>
+
+        <div>
+          <img class="main-figure" src="static/images/robot_acone.png" alt="AC-One robot setup">
+          <p class="caption">
+            AC-One dual-arm robot setup.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Simulation Results</h2>
+
+      <h3>RoboTwin 2.0</h3>
+      <img class="result-figure" src="static/images/tab1.png" alt="RoboTwin 2.0 main results">
+
+      <h3>Data Scale on RoboTwin 2.0</h3>
+      <img class="result-figure" src="static/images/tab2.png" alt="RoboTwin 2.0 data scale results">
+
+      <h3>LIBERO</h3>
+      <img class="result-figure" src="static/images/tab3.png" alt="LIBERO results">
+    </section>
+
+    <section class="section">
+      <h2>Real-World Results</h2>
+
+      <h3>Standard-Data Setting</h3>
+      <img class="result-figure" src="static/images/tab4.png" alt="Real-world standard-data results">
+
+      <h3>Few-Shot Setting</h3>
+      <img class="result-figure" src="static/images/tab5.png" alt="Real-world few-shot results">
+    </section>
+
+    <section class="section">
+      <h2>Ablation Study</h2>
+
+      <img class="result-figure" src="static/images/tab6.png" alt="Ablation study">
+    </section>
+
+    <section class="section" id="videos">
+      <h2>Real-World Videos</h2>
+
+      <p>
+        Real-world videos will be added soon. Each task will include ID success, baseline OOD failure,
+        and PriorVLA OOD success side by side.
+      </p>
+
+      <div class="video-placeholder">
+        Videos coming soon
+      </div>
+    </section>
+
+    <section class="section" id="bibtex">
+      <h2>BibTeX</h2>
+
+      <pre><code>@article{guo2026priorvla,
+  title   = {PriorVLA: Prior-Preserving Adaptation for Vision-Language-Action Models},
+  author  = {Guo, Xinyu and Xie, Bin and Chai, Wei and Deng, Xianchi and Wang, Tiancai and Wu, Zhengxing and Chen, Xingyu},
+  journal = {arXiv preprint},
+  year    = {2026}
+}</code></pre>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>PriorVLA</p>
+  </footer>
 </body>
 
 </html>
