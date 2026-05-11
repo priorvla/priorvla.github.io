@@ -298,12 +298,22 @@ h1 {
 }
 
 .video-task {
+    margin-top: 34px;
+}
+
+.video-task:first-of-type {
     margin-top: 8px;
 }
 
 .video-task h3 {
     margin-top: 10px;
     margin-bottom: 16px;
+}
+
+.task-meta {
+    font-size: 0.78em;
+    font-weight: 500;
+    color: #6b7280;
 }
 
 .video-grid {
