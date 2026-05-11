@@ -17,13 +17,13 @@ body {
    ========================= */
 
 .hero {
-    padding: 18px 18px 26px;
+    padding: 14px 18px 20px;
 }
 
 .hero-shell {
     position: relative;
     overflow: hidden;
-    max-width: 1420px;
+    max-width: 1360px;
     margin: 0 auto;
     border-radius: 26px;
     border: 1px solid rgba(15, 23, 42, 0.07);
