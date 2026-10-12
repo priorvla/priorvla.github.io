@@ -138,6 +138,15 @@ h1 {
     -webkit-text-fill-color: initial;
 }
 
+.venue {
+    font-size: 22px;
+    line-height: 1.4;
+    font-weight: 650;
+    color: #c34e03;
+    margin: -8px auto 24px;
+    text-align: center;
+}
+
 .authors {
     font-size: 20px;
     line-height: 1.55;
